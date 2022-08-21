@@ -7,25 +7,11 @@ use App\Http\Controllers\ListingController;
 // All listings
 Route::get('/', [ListingController::class, 'index']);
 
+// Create listings form
+Route::get("/listings/create", [ListingController::class, 'create']);
+
+// Store listings
+Route::post("/listings", [ListingController::class, 'store'])->name("create_job");
+
 // Single listing
 Route::get("/listings/{listing}", [ListingController::class, 'show']);
-
-
-// Notes
-/*
-Route::get("/hello", function () {
-    return response("<h1>Hello Guys</h1>", 200)
-        ->header("Content-Type", "text/plain");
-});
-
-Route::get("/posts/{id}", function ($id) {
-    return response("Posts " . $id);
-})
-    ->where("id", "[0-9]+")
-    ->name("getPosts");
-
-
-Route::get("/search", function (Request $request) {
-    return $request->name . " " . $request->city;
-});
-*/

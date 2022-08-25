@@ -15,3 +15,12 @@ Route::post("/listings", [ListingController::class, 'store'])->name("create_job"
 
 // Single listing
 Route::get("/listings/{listing}", [ListingController::class, 'show']);
+
+// Edit Submit to Update
+Route::put('/listings/{listing}', [ListingController::class, 'update']);
+
+// Delete Listing
+Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
+
+// Edit listings form
+Route::get("/listings/{listing}/edit", [ListingController::class, 'edit']);
